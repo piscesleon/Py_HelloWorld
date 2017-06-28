@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/HelloWorld.iml" filepath="$PROJECT_DIR$/.idea/HelloWorld.iml" />
+      <module fileurl="file://D:\Project\Python\Py_HelloWorld\.idea\HelloWorld.iml" filepath="D:\Project\Python\Py_HelloWorld\.idea\HelloWorld.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Py_HelloWorld.iml" filepath="$PROJECT_DIR$/.idea/Py_HelloWorld.iml" />
     </modules>
   </component>
 </project>
