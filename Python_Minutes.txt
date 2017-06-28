@@ -1,0 +1,369 @@
+Python 3
+
+. 基础
+
+.. 数学操作符
+** 指数 2 ** 3 8
+% 取模/取余数 22 % 8 6
+// 整除/商数取整 22 // 8 2
+/ 除法 22 / 8 2.75
+* 乘法 3 * 5 15
+- 减法 5 - 2 3
++ 加法 2 + 2 4
+
+.. 比较操作符
+==
+!=
+<
+>
+<=
+>=
+
+.. 布尔操作符
+not
+and
+or
+
+.. 变量
+区分大小写
+
+... 声明全局变量
+global
+
+def spam():
+ global eggs
+ eggs = 'spam'
+eggs = 'global'
+spam()
+print(eggs)
+
+.. 检查数据类型
+type()
+
+
+.. 注释：
+# 开头
+
+.. 输入与输出
+input()
+print()
+
+.. 字符串
+... 字符长度
+len()
+
+.. 显式转换
+int()  可对浮点数进行向下取整
+str()
+float()
+
+.. 布尔值
+True
+False
+
+0, 0.0, '' 被认为是 False
+
+.. None值
+表示没有值
+None是NoneType的唯一值
+
+对于所有没有 return 语句的函数定义， Python 都会在末尾加上 returnNone。这类似于 while 或 for 循环隐式地以 continue 语句结尾。而且，如果使用不带值的 return 语句（ 也就是只有 return 关键字本身）， 那么就返回 None。
+
+>>> spam = print('Hello!')
+Hello!
+>>> None == spam
+True
+
+.. 增强型赋值
+spam += 1 即 spam = spam + 1
+spam -= 1 即 spam = spam - 1
+spam *= 1 即 spam = spam * 1
+spam /= 1 即 spam = spam / 1
+spam %= 1 即 spam = spam % 1
+
+.. 续行字符 \
+加在行末尾，表示本行未结束
+
+.. 代码块
+以缩进代表代码块
+代码块可以嵌套
+
+.. 条件判断
+if name=='Mary':
+  print('Mary')
+elif name=='Leon':
+  print('Leon')
+elif name=='Leon2':
+  print('Leon2')
+else:
+ print('Other')
+
+.. 循环
+... 跳出循环
+break
+可在while和for内部使用
+
+... 再次开始循环
+continue
+可在while和for内部使用
+
+... while
+while spam<5:
+  print('Hello')
+  spam=spam+1
+
+... for
+print('My name is')
+for i in range(5):
+  print('Jimmy Five Times (' + str(i) + ')')
+
+第1次运行时， i 被设置为0。 即初始值从0开始
+
+.. 导入模块
+import random
+import math
+import random, os, sys, math
+
+.. 提前结束程序
+sys.exit()
+
+. 函数
+.. 定义函数
+def functionName():
+
+.. 带参数的函数
+def hello(name):
+  print('Hello' + name)
+
+hello('Leon')
+
+.. 带返回值的函数
+可以用 return 定义返回的值或表达式
+
+.. 异常处理
+try...except
+
+把可能出错的语句放在try中，如果错误发生，就执行except
+
+... 错误信息
+ZeroDivisionError 除0错误
+IndexError 下标错误
+
+. 方法
+
+与函数是一回事，但是调用在一个值上
+.. 例：列表的方法
+index()
+
+spam.index('hello')
+即取'hello'在spam中的位置
+
+. 列表
+用 [] 括起，各项目间用 , 分隔
+
+列表变量，实际存储的是列表的“引用”地址
+
+列表中的各表项，可以是不同类型的值
+
+可用下标获取列表中的值，下标以0开始
+
+>>> spam = ['cat', 'bat', 'rat', 'elephant']
+>>> spam[0]
+'cat'
+
+.. 列表可以嵌套
+>>> spam = [['cat', 'bat'], [10, 20, 30, 40, 50]]
+>>> spam[0]
+['cat', 'bat']
+>>> spam[0][1]
+'bat'
+>>> spam[1][4]
+50
+
+.. 负数下标
+-1 指列表中最后一个值
+-2 指列表中倒数第2个值
+
+.. 切片
+从列表中取得多个值，形成新列表
+spam[1:4]
+切片的终止值，并不包含在切片中
+
+.. 列表的长度
+可以用len()获取
+
+.. 列表的连接与复制
++ 用于连接列表
+* 用于复制列表，并形成新的列表
+
+>>> [1, 2, 3] + ['A', 'B', 'C']
+[1, 2, 3, 'A', 'B', 'C']
+>>> ['X', 'Y', 'Z'] * 3
+['X', 'Y', 'Z', 'X', 'Y', 'Z', 'X', 'Y', 'Z']
+
+
+... 技巧
+可以先新建一个空的列表，通过循环添加列表值，避免建立固定数量多个变量
+
+.. 从列表中删除值
+del spam[2]
+
+同时 del 也可用于释放变量
+
+.. in 和 not in 操作符
+用于确定某一值是否在列表中
+
+.. 多重赋值
+>>> cat = ['fat', 'black', 'loud']
+>>> size, color, disposition = cat
+
+即分别赋值size='fat', color='black', disposition='loud'
+
+.. 列表的方法
+
+... index()
+spam.index('hello')
+取'hello'在列表spam中的位置
+
+... append(), insert() 在列表中添加值
+append() 在列表尾添加值
+insert(n,value) 在列表位置n处插入值value
+
+... remove() 在列表中删除值，通过指定值的内容
+spam.remove('hello')
+若该值在列表中出现多次，只会删除第1个相同的值
+
+... del() 在列表中删除值，通过指定值的位置
+spam.del(3)
+
+... sort() 将列表中的值排序
+spam.sort()
+执行后，按从小到大的顺序排列spam列表，并保存在spam中
+
+spam.sort(reverse=True) 则按从大到小的顺序进行排序
+
+注意：无法对混合类型（数字+字符）的列表进行排序
+
+.... 排序时若需要对大小写不敏感
+默认排序下，大写字母 小于 小写字母
+spam.sort(key=str.lower)
+将按全部字母小写来进行排序，但并不会改变列表中的实际值
+
+
+. 字符串和元组： 类似列表的存在
+字符串可以视作单个文本字符的列表，也可以用列表的 方法 来进行操作
+
+.. 字符串与列表的区别
+字符串是 不可变 数据类型
+列表是 可变 数据类型
+
+.. 元组
+元组使用 () 而非 []
+>>> eggs = ('hello', 42, 0.5)
+>>> eggs[0]
+'hello'
+
+... 注： 元组是“不可变”数据类型
+即：值不可被添加、修改、删除
+
+如果元组中只有一个值， 你可以在括号内该值的后面跟上一个逗号， 表明这种情况。 否则， Python 将认为， 你只是在一个普通括号内输入了一个值。
+
+.. 列表与元组的互相转换
+list() 返回列表
+tuple() 返回元组
+
+.. 引用与值
+列表变量实际是对列表的引用，若将一个列表变量赋值给另一个列表变量，改变列表值后，2个列表变量返回的值将同时发生改变，因为返回的是列表的引用，实际产生改变的是同一个列表
+
+对于“可变”数据类型，保存的是“引用”
+ - 列表、字典
+对于“不可变”数据类型，保存的是“值”
+ - 字符串、整型、元组
+
+.. copy模块的copy()和deepcopy()
+对于传入的列表或字典，有时候不希望一些变动影响原来的列表或字典。
+>>> import copy
+>>> spam = ['A', 'B', 'C', 'D']
+>>> cheese = copy.copy(spam)
+>>> cheese[1] = 42
+>>> spam
+['A', 'B', 'C', 'D']
+>>> cheese
+['A', 42, 'C', 'D']
+
+如果要复制嵌套的列表，就使用deepcopy()来同时复制它们内部的列表
+
+. 字典
+用 {} 括起
+字典是 索引+值 的组合，即 键-值 对
+理解为： 字段名 + 单行内容
+
+>>> myCat = {'size': 'fat', 'color': 'gray', 'disposition': 'loud'}
+>>> myCat['size']
+'fat'
+
+>>> spam = {12345: 'Luggage Combination', 42: 'The Answer'}
+
+.. 字典与列表
+字典中的表项是不排序的，即 键 无大小
+>>> eggs = {'name': 'Zophie', 'species': 'cat', 'age': '8'}
+>>> ham = {'species': 'cat', 'age': '8', 'name': 'Zophie'}
+>>> eggs == ham
+True
+
+字典无序，所以无法切片
+
+... 在字典中添加 键-值
+birthdays = {'Alice': 'Apr 1', 'Bob': 'Dec 12', 'Carol': 'Mar 4'}
+print(birthdays)
+birthdays['Additional']='Added Date'
+print(birthdays)
+
+.. 字典的keys(), values(), items()方法
+
+分别返回字典的键、值和键-值对，这些方法返回的值不是真正的列表，它们不能被修改。但这些数据类型（分别是 dict_keys、 dict_values 和 dict_items）可以用于for 循环。
+
+>>> spam = {'color': 'red', 'age': 42}
+>>> for v in spam.values():
+print(v)
+
+items()方法返回的 dict_items 值中，包含的是键和值的元组。
+>>> for i in spam.items():
+print(i)
+('color', 'red')
+('age', 42)
+
+如果希望通过这些方法得到一个真正的列表，就把类似列表的返回值传递给 list函数。
+
+>>> spam = {'color': 'red', 'age': 42}
+>>> list(spam.keys())
+['color', 'age']
+
+可以在for中使用2个变量分别调用items()的 键 与 值
+>>> spam = {'color': 'red', 'age': 42}
+>>> for k, v in spam.items():
+print('Key: ' + k + ' Value: ' + str(v))
+Key: age Value: 42
+Key: color Value: red
+
+... 字典的get()方法
+它有两个参数：要取得其值的键，以及如果该键不存在时，返回的备用值。
+>>> picnicItems = {'apples': 5, 'cups': 2}
+>>> 'I am bringing ' + str(picnicItems.get('cups', 0)) + ' cups.'
+'I am bringing 2 cups.'
+>>> 'I am bringing ' + str(picnicItems.get('eggs', 0)) + ' eggs.'
+'I am bringing 0 eggs.'
+
+... 字典的 setdefault() 方法
+在字典中检查某个键是否存在，如果不存在则为其设置一个默认值
+用于确保某个键能确实存在
+
+>>> spam = {'name': 'Pooka', 'age': 5}
+>>> spam.setdefault('color', 'black')
+'black'
+>>> spam
+{'color': 'black', 'age': 5, 'name': 'Pooka'}
+>>> spam.setdefault('color', 'white')
+'black'
+>>> spam
+{'color': 'black', 'age': 5, 'name': 'Pooka'}
