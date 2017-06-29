@@ -1,4 +1,4 @@
-Python 3.x
+Python 3
 
 . 基础
 
@@ -31,8 +31,8 @@ or
 global
 
 def spam():
-  global eggs
-  eggs = 'spam'
+ global eggs
+ eggs = 'spam'
 eggs = 'global'
 spam()
 print(eggs)
@@ -43,6 +43,9 @@ type()
 
 .. 注释：
 # 开头
+
+... 多行注释
+可用三重引号的字符串，表示多行注释
 
 .. 输入与输出
 input()
@@ -367,3 +370,146 @@ Key: color Value: red
 'black'
 >>> spam
 {'color': 'black', 'age': 5, 'name': 'Pooka'}
+
+.. 用于字典的，更漂亮的打印模块 pprint
+引入后，可以使用 pprint() 和 pformat()
+pprint() 会按“键”进行排序，然后输出打印
+
+import pprint
+message = 'It was a bright cold day in April, and the clocks were striking thirteen.'
+count = {}
+for character in message:
+    count.setdefault(character, 0)
+    count[character] = count[character] + 1
+pprint.pprint(count)
+print(count)
+
+
+如果字典本身包含嵌套的列表或字典， pprint.pprint()函数就特别有用。
+
+.. 嵌套字典与列表
+
+参见自己写的 totalBrought.py
+
+. 字符串操作
+单引号、双引号，均可用于表示字符串
+
+.. 转义符表示字符串
+当一个字符串中，即有单引号又需要有双引号时，要用转义符来表示其中的 ' 和 " 是字符串的组成部分之一
+即以 \ 开头的单个字符
+\'
+\"
+\t
+\n
+\\
+
+.. 原始字符串 - 完全忽略转义符
+在字符串开始前的引号前，加上r
+>>> print(r'That is Carol\'s cat.')
+That is Carol\'s cat.
+
+.. 多行字符串
+使用三重引号表示
+print('''Dear Alice,
+Eve's cat has been arrested for catnapping, cat burglary, and extortion.
+Sincerely,
+Bob''')
+
+.. 字符串下标和切片
+>>> spam = 'Hello world!'
+>>> spam[0]
+'H'
+>>> spam[4]
+'o'
+>>> spam[-1]
+'!'
+>>> spam[0:5]
+'Hello'
+>>> spam[:5]
+'Hello'
+>>> spam[6:]
+'world!'
+
+字符串切片并没有修改原来的字符串。
+
+.. 字符串可用 in 和 not in 判断
+大小写敏感
+
+.. 字符串方法
+... upper()
+转换为大写
+
+... lower()
+转换为小写
+
+... isupper()
+判断是否有字母，且字母均为大写
+
+... islower()
+判断是否有字母，且字母均为小写
+
+... isalpha()
+是否只包含字母，且非空
+
+... isalnum()
+是否只包含字母和数字，且非空
+
+... isdecimal()
+是否只包含数字字符，且非空
+
+... isspace()
+是否只包含空格、制表符、和换行，且非空
+
+... istitle()
+是否字符串中所有单词均为首字母大写，其他字母小写
+可以包含数字字符
+
+... startswith()
+检查字符串是否以某字串起始
+>>> 'Hello world!'.startswith('Hello')
+True
+>>> 'abc123'.startswith('abcdef')
+False
+
+... endswith()
+检查字符串是否以某字串结束
+
+... join()
+连接字符串
+调用 join()方法的字符串， 被插入到列表参数中每个字符串的中间。例如，如果在', '字符串上调用 join(['cats', 'rats', 'bats'])， 返回的字符串就是'cats, rats, bats'
+>>> ', '.join(['cats', 'rats', 'bats'])
+'cats, rats, bats'
+>>> ' '.join(['My', 'name', 'is', 'Simon'])
+'My name is Simon'
+>>> 'ABC'.join(['My', 'name', 'is', 'Simon'])
+'MyABCnameABCisABCSimon
+
+... spilit()
+分割字符串，成为一个列表
+>>> 'My name is Simon'.split()
+['My', 'name', 'is', 'Simon']
+
+默认情况下，字符串'My name is Simon'按照各种空白字符分割， 诸如空格、 制表符或换行符。
+
+也可以向 split()方法传入一个分割字符串， 指定它按照不同的字符串分割。
+>>> 'MyABCnameABCisABCSimon'.split('ABC')
+['My', 'name', 'is', 'Simon']
+
+... rjust()
+通过填充空格，实现向右对齐
+也可以用字符参数来替代空格
+>>> 'Hello World'.rjust(20)
+'               Hello World'
+
+>>> 'Hello'.rjust(20, '*')
+'***************Hello'
+
+... ljust()
+通过填充空格，实现向左对齐
+
+... center()
+通过填充空格，实现居中对齐
+>>> 'Hello'.center(20, '=')
+'=======Hello========'
+
+
