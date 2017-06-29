@@ -512,4 +512,24 @@ False
 >>> 'Hello'.center(20, '=')
 '=======Hello========'
 
+... rstrip()
+删除字符串右边的空白字符（空格、制表符、换行符）
+
+... lstrip
+删除字符串左边的空白字符（空格、制表符、换行符）
+
+... strip()
+删除字符串两边的空白字符（空格、制表符、换行符）
+
+>>> spam = 'SpamSpamBaconSpamEggsSpamSpam'
+>>> spam.strip('ampS')
+'BaconSpamEggs'
+向 strip()方法传入参数'ampS'， 告诉它在变量中存储的字符串两端， 删除出现的a、 m、 p 和大写的 S。传入 strip()方法的字符串中， 字符的顺序并不重要： strip('ampS')做的事情和 strip('mapS')或 strip('Spam')一样。
+
+... pyperclip 模块，拷贝粘贴字符串 （非自带模块，需要安装）
+该模块有  copy() paste() 函数
+>>> import pyperclip
+>>> pyperclip.copy('Hello world!')
+>>> pyperclip.paste()
+'Hello world!'
 
