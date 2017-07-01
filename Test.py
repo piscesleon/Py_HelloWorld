@@ -11,6 +11,11 @@ import shelve # 导入用于保存变更的二进制文件模块
 
 # 以下放置代码
 
-phoneNumRegex = re.compile(r'\d\d\d-\d\d\d-\d\d\d\d')
-mo = phoneNumRegex.search('My number is 415-555-4242., 111-222-3322')
-print('Phone number found: ' + mo.group())
+
+for folderName, subfolders, filenames in os.walk('D:\\Project'): # 遍历所有文件夹、及子文件夹，并用for列出所有父子文件夹与文件名
+    print('The current folder is ' + folderName)
+    for subfolder in subfolders:
+        print('SUBFOLDER OF ' + folderName + ': ' + subfolder)
+    for filename in filenames:
+        print('FILE INSIDE ' + folderName + ': '+ filename)
+    print('')
