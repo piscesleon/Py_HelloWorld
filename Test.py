@@ -5,6 +5,9 @@ import os
 import re # 导入正则表达式
 import pyperclip # 导入剪贴板
 import shelve # 导入用于保存变更的二进制文件模块
+import logging #导入日志
+
+logging.basicConfig(level=logging.DEBUG, format=' %(asctime)s - %(levelname)s - %(message)s')
 
 
 # TODO: 这里放置所有待办事项
