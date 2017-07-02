@@ -24,6 +24,9 @@ print(noStarchSoup)
 '''
 
 os.chdir('D:\\Project\\Python\\Py_HelloWorld')
+
+#part1
+'''
 exampleFile = open('example.html')
 exampleSoup = bs4.BeautifulSoup(exampleFile.read(),"html.parser") # bs4的奇怪要求，加上第2个参数
 elems = exampleSoup.select('#author') #寻找id author
@@ -33,3 +36,14 @@ print(type(elems[0])) # 第1个列表项为bs4.element.Tag类
 print(elems[0].getText()) #获取第1个列表项内的文本内容，即id author对应的文本内容
 print(str(elems[0])) #获取第1个列表项，含HTML语法的内容
 print(elems[0].attrs) #把Tag的所有HTML属性作为一个字典
+'''
+
+# part2
+
+soup = bs4.BeautifulSoup(open('example.html').read(),"html.parser")
+print(soup.select('span'))
+spanElem = soup.select('span')[0]
+print(str(spanElem))
+print(spanElem.get('id'))
+spanElem.get('some_nonexistent_addr') == None
+print(spanElem.attrs)
