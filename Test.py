@@ -6,6 +6,7 @@ import re # 导入正则表达式
 import pyperclip # 导入剪贴板
 import shelve # 导入用于保存变更的二进制文件模块
 import requests #另外安装的模块，用于下载网页内容
+import openpyxl #用于处理Excel文件
 import bs4
 
 import logging #导入日志
